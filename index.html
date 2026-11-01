@@ -1,0 +1,1076 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prosper VP</title>
+<meta name="description" content="Veteran-owned business coaching and fractional VP help for small and mid-sized businesses. We find what's holding you back and fix it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!--
+  ================================================================
+  PROSPER VP WEBSITE: ONE FILE FOR EVERY PAGE
+  This one file holds the header, the footer and all the pages:
+  home, about, contact, scorecard, plus a footer-only piece.
+  Each Wix page shows one part of it. Change something here once
+  and every page that uses it changes too.
+  The easy edits (web address, which page to show) are in the
+  script near the bottom, under "EASY EDITS".
+  ================================================================
+-->
+<style>
+  /* ============================================================
+     EASY EDITS: colors live here. Change a hex code to recolor.
+     Same colors as prospererp.com.
+     ============================================================ */
+  :root {
+    --navy: #1A3761;
+    --navy-deep: #0B2B4C;
+    --teal: #2E7F92;
+    --mint: #7CC9B9;
+    --ink: #13233A;
+    --muted: #5A6B80;
+    --line: #E2E8EF;
+    --soft: #F4F8FB;
+    --white: #FFFFFF;
+    --solid: #1F6B5C;
+    --watch: #B7791F;
+    --strained: #B0503A;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  [hidden] { display: none !important; }
+  html { scroll-behavior: smooth; scrollbar-width: none; }
+  /* Hide this page's own scroll bar so Wix shows only one */
+  html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
+  body { font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--ink); background: var(--white); line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+  /* Header */
+  .site-top { background: var(--navy-deep); position: relative; z-index: 10; }
+  .site-top .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 12px; }
+  .site-brand { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font-weight: 800; font-size: 20px; letter-spacing: -.01em; }
+  .site-brand svg { width: 38px; height: 38px; flex: none; }
+  .site-brand small { display: block; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--mint); line-height: 1.2; }
+  .site-brand span { line-height: 1.1; }
+  .site-top nav { display: flex; align-items: center; gap: 22px; }
+  .site-top nav a.link { color: #C9D6E5; text-decoration: none; font-weight: 500; font-size: 15px; }
+  .site-top nav a.link:hover, .site-top nav a.link.here { color: #fff; }
+  .site-top nav a.link.here { box-shadow: inset 0 -2px 0 var(--mint); padding-bottom: 4px; }
+  .site-btn { display: inline-block; padding: 10px 16px; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 15px; background: var(--mint); color: var(--navy-deep); }
+  .site-btn:hover { background: #8fd6c7; }
+  .site-top .bar-cta, .menu-btn { display: none; }
+  .menu-btn { width: 44px; height: 44px; border: 1px solid rgba(255,255,255,.25); border-radius: 10px; background: none; cursor: pointer; place-items: center; flex: none; }
+  .menu-btn span, .menu-btn span::before, .menu-btn span::after { display: block; width: 20px; height: 2px; background: #fff; border-radius: 2px; position: relative; transition: transform .2s, background .2s; }
+  .menu-btn span::before, .menu-btn span::after { content: ""; position: absolute; left: 0; }
+  .menu-btn span::before { top: -6px; }
+  .menu-btn span::after { top: 6px; }
+  .site-top.open .menu-btn span { background: transparent; }
+  .site-top.open .menu-btn span::before { transform: translateY(6px) rotate(45deg); }
+  .site-top.open .menu-btn span::after { transform: translateY(-6px) rotate(-45deg); }
+
+  /* Footer */
+  .site-foot { background: var(--navy-deep); color: #9FB3CA; padding: 48px 0 28px; font-size: 15px; }
+  .site-foot .cols { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 32px; }
+  .site-foot h4 { color: #fff; font-size: 14px; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 12px; }
+  .site-foot ul { list-style: none; display: grid; gap: 8px; }
+  .site-foot a { color: #C9D6E5; text-decoration: none; }
+  .site-foot a:hover { color: #fff; }
+  .site-foot .about p { margin-top: 12px; max-width: 320px; }
+  .site-foot .erp-link { color: var(--mint); font-weight: 600; }
+  .site-foot .bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; border-top: 1px solid rgba(255,255,255,.1); margin-top: 36px; padding-top: 20px; font-size: 14px; }
+  .site-foot .bottom nav { display: flex; gap: 18px; flex-wrap: wrap; }
+
+  #v-scorecard { background: var(--soft); }
+
+  /* ---- home page ---- */
+  #v-home .wrap {max-width: 1120px; margin: 0 auto; padding: 0 20px;}
+  #v-home .btn {display: inline-block; padding: 14px 24px; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 16px; transition: transform .15s, box-shadow .15s, background .15s;}
+  #v-home .btn:hover {transform: translateY(-1px);}
+  #v-home .btn-main {background: var(--mint); color: var(--navy-deep); box-shadow: 0 6px 20px rgba(124,201,185,.35);}
+  #v-home .btn-main:hover {background: #8fd6c7;}
+  #v-home .btn-ghost {border: 2px solid rgba(255,255,255,.4); color: #fff;}
+  #v-home .btn-ghost:hover {border-color: #fff;}
+  #v-home .btn-navy {background: var(--navy); color: #fff;}
+  #v-home .btn-navy:hover {background: var(--navy-deep);}
+  #v-home .eyebrow {text-transform: uppercase; letter-spacing: .12em; font-size: 13px; font-weight: 700; color: var(--teal);}
+  #v-home h2 {font-size: clamp(28px, 4vw, 40px); line-height: 1.15; letter-spacing: -.02em; font-weight: 800; margin: 10px 0 14px;}
+  #v-home .lead {font-size: 18px; color: var(--muted); max-width: 680px;}
+  #v-home section {padding: 80px 0;}
+  #v-home .center {text-align: center;}
+  #v-home .center .lead {margin: 0 auto;}
+  #v-home .hero {background: radial-gradient(1200px 500px at 85% -10%, rgba(124,201,185,.25), transparent 60%), linear-gradient(180deg, var(--navy-deep), var(--navy)); color: #fff; padding: 72px 0 90px;}
+  #v-home .hero .wrap {display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: center;}
+  #v-home .vet {display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--mint); border: 1px solid rgba(124,201,185,.4); border-radius: 999px; padding: 6px 14px; margin-bottom: 20px;}
+  #v-home .hero h1 {font-size: clamp(34px, 5vw, 54px); line-height: 1.08; letter-spacing: -.03em; font-weight: 800;}
+  #v-home .hero h1 span {color: var(--mint);}
+  #v-home .hero p {font-size: 19px; color: #C9D6E5; margin: 18px 0 28px; max-width: 560px;}
+  #v-home .hero .ctas {display: flex; flex-wrap: wrap; gap: 12px;}
+  #v-home .hero .small {margin-top: 14px; font-size: 14px; color: #9FB3CA;}
+  #v-home .familiar {background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 16px; padding: 28px;}
+  #v-home .familiar h3 {font-size: 20px; margin-bottom: 14px;}
+  #v-home .familiar ul {list-style: none;}
+  #v-home .familiar li {padding: 8px 0 8px 32px; position: relative; color: #DCE6F1; border-bottom: 1px solid rgba(255,255,255,.08);}
+  #v-home .familiar li:last-child {border-bottom: 0;}
+  #v-home .familiar li::before {content: ""; position: absolute; left: 0; top: 12px; width: 16px; height: 16px; border: 2px solid var(--mint); border-radius: 4px;}
+  #v-home .familiar .end {margin-top: 14px; font-weight: 600; color: var(--mint);}
+  #v-home .strip {background: var(--soft); border-bottom: 1px solid var(--line); padding: 22px 0;}
+  #v-home .strip .wrap {display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 36px; color: var(--muted); font-weight: 600; font-size: 15px;}
+  #v-home .strip span::before {content: "✓"; color: var(--teal); margin-right: 8px; font-weight: 800;}
+  #v-home .probs {display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px;}
+  #v-home .prob {background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 26px; display: flex; flex-direction: column; gap: 12px;}
+  #v-home .prob h3 {font-size: 19px; letter-spacing: -.01em;}
+  #v-home .prob .pain {color: var(--muted); font-size: 15px;}
+  #v-home .prob .k {font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--teal);}
+  #v-home .prob .fix {font-size: 15px;}
+  #v-home .prob .win {margin-top: auto; background: #E6F5F1; color: #1F6B5C; border-radius: 10px; padding: 10px 14px; font-size: 15px; font-weight: 600;}
+  #v-home .how {background: var(--soft);}
+  #v-home .flow {display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px;}
+  #v-home .flow > div {background: #fff; border: 1px solid var(--line); border-top: 4px solid var(--teal); border-radius: 0 0 14px 14px; padding: 24px; display: flex; flex-direction: column; gap: 8px;}
+  #v-home .flow .n {font-weight: 800; color: var(--mint); font-size: 14px;}
+  #v-home .flow h4 {font-size: 19px;}
+  #v-home .flow .when {font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--muted);}
+  #v-home .flow p {font-size: 15px; color: var(--muted);}
+  #v-home .flow a {margin-top: auto; padding-top: 6px; font-weight: 700; color: var(--teal); text-decoration: none;}
+  #v-home .flow a:hover {text-decoration: underline;}
+  #v-home .two {display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;}
+  #v-home .checks {list-style: none; display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 18px 0 26px; color: var(--muted); font-weight: 600; font-size: 15px;}
+  #v-home .checks li::before {content: "✓"; color: var(--teal); margin-right: 8px; font-weight: 800;}
+  #v-home blockquote {background: var(--soft); border: 1px solid var(--line); border-radius: 16px; padding: 28px;}
+  #v-home blockquote p {font-size: 21px; line-height: 1.4; font-weight: 600; letter-spacing: -.01em;}
+  #v-home blockquote cite {display: block; margin-top: 14px; font-style: normal; color: var(--muted); font-size: 15px;}
+  #v-home .pete {margin-top: 28px;}
+  #v-home .pete h3 {font-size: 20px; margin-bottom: 8px;}
+  #v-home .pete p {color: var(--muted);}
+  #v-home .facts {display: flex; flex-wrap: wrap; gap: 32px; margin-top: 18px;}
+  #v-home .facts b {display: block; font-size: 32px; font-weight: 800; letter-spacing: -.02em; color: var(--navy); line-height: 1.1;}
+  #v-home .facts span {font-size: 14px; color: var(--muted);}
+  #v-home .erp {background: var(--navy); color: #fff;}
+  #v-home .erp .wrap {display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center;}
+  #v-home .erp .eyebrow {color: var(--mint);}
+  #v-home .erp .lead {color: #C9D6E5; margin-bottom: 26px;}
+  #v-home .erp .brand {display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 22px; margin-bottom: 18px;}
+  #v-home .erp .brand svg {width: 44px; height: 44px; flex: none;}
+  #v-home .erp .ctas {display: flex; flex-wrap: wrap; gap: 12px;}
+  #v-home .erp ul {list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 12px;}
+  #v-home .erp li {background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 10px; padding: 12px 14px 12px 38px; position: relative; font-size: 15px; font-weight: 600;}
+  #v-home .erp li::before {content: "✓"; position: absolute; left: 14px; color: var(--mint); font-weight: 800;}
+  #v-home .faq .list {max-width: 780px; margin-top: 30px;}
+  #v-home details {background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 18px 22px; margin-bottom: 12px;}
+  #v-home summary {font-weight: 700; cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 12px;}
+  #v-home summary::-webkit-details-marker {display: none;}
+  #v-home summary::after {content: "+"; color: var(--teal); font-size: 22px; line-height: 1;}
+  #v-home details[open] summary::after {content: "–";}
+  #v-home details p {color: var(--muted); margin-top: 10px;}
+  #v-home .final {background: linear-gradient(135deg, var(--teal), var(--navy)); color: #fff; text-align: center;}
+  #v-home .final p {color: #DCEAF2; font-size: 18px; margin: 0 auto 26px; max-width: 560px;}
+@media (max-width: 900px) {
+  #v-home .hero .wrap, #v-home .two, #v-home .erp .wrap {grid-template-columns: 1fr;}
+  #v-home .probs, #v-home .flow {grid-template-columns: 1fr 1fr;}
+}
+@media (max-width: 560px) {
+  #v-home section {padding: 56px 0;}
+  #v-home .hero {padding: 44px 0 60px;}
+  #v-home .probs, #v-home .flow, #v-home .erp ul {grid-template-columns: 1fr;}
+  #v-home .hero .ctas .btn, #v-home .erp .ctas .btn {flex: 1 1 100%; text-align: center;}
+}
+
+  /* ---- about page ---- */
+  #v-about .wrap {max-width: 1120px; margin: 0 auto; padding: 0 20px;}
+  #v-about .btn {display: inline-block; padding: 14px 24px; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 16px; transition: transform .15s, box-shadow .15s, background .15s;}
+  #v-about .btn:hover {transform: translateY(-1px);}
+  #v-about .btn-main {background: var(--mint); color: var(--navy-deep); box-shadow: 0 6px 20px rgba(124,201,185,.35);}
+  #v-about .btn-main:hover {background: #8fd6c7;}
+  #v-about .btn-ghost {border: 2px solid rgba(255,255,255,.4); color: #fff;}
+  #v-about .btn-ghost:hover {border-color: #fff;}
+  #v-about .eyebrow {text-transform: uppercase; letter-spacing: .12em; font-size: 13px; font-weight: 700; color: var(--teal);}
+  #v-about h2 {font-size: clamp(28px, 4vw, 40px); line-height: 1.15; letter-spacing: -.02em; font-weight: 800; margin: 10px 0 14px;}
+  #v-about .lead {font-size: 18px; color: var(--muted); max-width: 680px;}
+  #v-about section {padding: 80px 0;}
+  #v-about .hero {background: radial-gradient(1200px 500px at 85% -10%, rgba(124,201,185,.25), transparent 60%), linear-gradient(180deg, var(--navy-deep), var(--navy)); color: #fff; padding: 72px 0 90px;}
+  #v-about .hero .wrap {display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: center;}
+  #v-about .hero .eyebrow {color: var(--mint);}
+  #v-about .hero h1 {font-size: clamp(34px, 5vw, 54px); line-height: 1.08; letter-spacing: -.03em; font-weight: 800; margin-top: 12px;}
+  #v-about .hero h1 span {color: var(--mint);}
+  #v-about .hero p {font-size: 19px; color: #C9D6E5; margin-top: 18px; max-width: 580px;}
+  #v-about .stats {display: grid; gap: 14px;}
+  #v-about .stat {background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 14px; padding: 20px 22px;}
+  #v-about .stat b {display: block; font-size: 34px; font-weight: 800; letter-spacing: -.02em; color: var(--mint); line-height: 1.1;}
+  #v-about .stat span {color: #C9D6E5; font-size: 15px;}
+  #v-about .ceiling .wrap {display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;}
+  #v-about .have {display: grid; gap: 12px;}
+  #v-about .have div {display: flex; align-items: center; gap: 14px; border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; font-weight: 600;}
+  #v-about .have i {font-style: normal; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; flex: none;}
+  #v-about .have .yes i {background: #E6F5F1; color: #1F6B5C;}
+  #v-about .have .no {background: var(--navy); color: #fff; border-color: var(--navy);}
+  #v-about .have .no i {background: var(--mint); color: var(--navy-deep);}
+  #v-about .record {background: var(--soft);}
+  #v-about .grid {display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 40px;}
+  #v-about .card {background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 26px;}
+  #v-about .card h3 {font-size: 18px; margin-bottom: 6px;}
+  #v-about .card p {color: var(--muted); font-size: 15px;}
+  #v-about .navy {background: var(--navy); color: #fff;}
+  #v-about .navy .wrap {display: grid; grid-template-columns: 1fr 1.1fr; gap: 48px; align-items: center;}
+  #v-about .navy .eyebrow {color: var(--mint);}
+  #v-about .navy .lead {color: #C9D6E5;}
+  #v-about .ships {display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px;}
+  #v-about .ships span {border: 1px solid rgba(124,201,185,.45); color: var(--mint); border-radius: 999px; padding: 6px 14px; font-weight: 700; font-size: 14px; letter-spacing: .04em;}
+  #v-about .values {display: grid; grid-template-columns: 1fr 1fr; gap: 12px;}
+  #v-about .values div {background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 12px; padding: 18px;}
+  #v-about .values h4 {font-size: 17px; margin-bottom: 4px;}
+  #v-about .values p {font-size: 14px; color: #C9D6E5;}
+  #v-about .two {display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 36px;}
+  #v-about .panel {background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 28px;}
+  #v-about .panel.best {border: 2px solid var(--teal);}
+  #v-about .panel h3 {font-size: 20px; margin-bottom: 4px;}
+  #v-about .panel .who {color: var(--teal); font-weight: 700; font-size: 14px; margin-bottom: 12px;}
+  #v-about .panel ul {list-style: none; color: var(--muted);}
+  #v-about .panel li {padding: 6px 0 6px 26px; position: relative;}
+  #v-about .panel li::before {content: "✓"; position: absolute; left: 0; color: var(--teal); font-weight: 800;}
+  #v-about .start {margin-top: 20px; color: var(--muted); font-size: 15px;}
+  #v-about .start a {color: var(--teal); font-weight: 700;}
+  #v-about .erp-note {background: var(--soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 36px 0;}
+  #v-about .erp-note .wrap {display: flex; align-items: center; gap: 20px; flex-wrap: wrap;}
+  #v-about .erp-note svg {width: 48px; height: 48px; flex: none;}
+  #v-about .erp-note p {flex: 1 1 360px; color: var(--muted);}
+  #v-about .erp-note b {color: var(--ink);}
+  #v-about .erp-note a.go {font-weight: 700; color: var(--teal); text-decoration: none; white-space: nowrap;}
+  #v-about .erp-note a.go:hover {text-decoration: underline;}
+  #v-about .final {background: linear-gradient(135deg, var(--teal), var(--navy)); color: #fff; text-align: center;}
+  #v-about .final p {color: #DCEAF2; font-size: 18px; margin: 0 auto 26px; max-width: 560px;}
+  #v-about .final .ctas {display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;}
+@media (max-width: 900px) {
+  #v-about .hero .wrap, #v-about .ceiling .wrap, #v-about .navy .wrap, #v-about .two {grid-template-columns: 1fr;}
+}
+@media (max-width: 560px) {
+  #v-about section {padding: 56px 0;}
+  #v-about .hero {padding: 44px 0 60px;}
+  #v-about .grid, #v-about .values {grid-template-columns: 1fr;}
+  #v-about .final .btn {flex: 1 1 100%;}
+}
+
+  /* ---- contact page ---- */
+  #v-contact .wrap {max-width: 1120px; margin: 0 auto; padding: 0 20px;}
+  #v-contact .eyebrow {text-transform: uppercase; letter-spacing: .12em; font-size: 13px; font-weight: 700; color: var(--mint);}
+  #v-contact .hero {background: radial-gradient(1200px 500px at 85% -10%, rgba(124,201,185,.25), transparent 60%), linear-gradient(180deg, var(--navy-deep), var(--navy)); color: #fff; padding: 64px 0 72px;}
+  #v-contact .hero .wrap {display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: start;}
+  #v-contact .hero h1 {font-size: clamp(32px, 4.6vw, 48px); line-height: 1.1; letter-spacing: -.03em; font-weight: 800; margin-top: 12px;}
+  #v-contact .hero h1 span {color: var(--mint);}
+  #v-contact .hero p {font-size: 18px; color: #C9D6E5; margin-top: 16px; max-width: 540px;}
+  #v-contact .checks {list-style: none; display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 22px; color: #DCE6F1; font-weight: 600; font-size: 15px;}
+  #v-contact .checks li::before {content: "✓"; color: var(--mint); margin-right: 8px; font-weight: 800;}
+  #v-contact .next {background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 16px; padding: 26px;}
+  #v-contact .next h3 {font-size: 18px; margin-bottom: 14px;}
+  #v-contact .next ol {list-style: none; display: grid; gap: 14px;}
+  #v-contact .next li {display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start;}
+  #v-contact .next li b {width: 34px; height: 34px; border-radius: 50%; background: var(--mint); color: var(--navy-deep); display: grid; place-items: center; font-weight: 800; font-size: 15px;}
+  #v-contact .next li strong {display: block; font-size: 16px;}
+  #v-contact .next li span {color: #C9D6E5; font-size: 15px;}
+  #v-contact .formhead {padding: 44px 0 8px;}
+  #v-contact .formhead h2 {font-size: clamp(24px, 3vw, 30px); letter-spacing: -.02em; font-weight: 800;}
+  #v-contact .formhead p {color: var(--muted); margin-top: 6px;}
+@media (max-width: 900px) {
+  #v-contact .hero .wrap {grid-template-columns: 1fr;}
+}
+@media (max-width: 560px) {
+  #v-contact .hero {padding: 44px 0 52px;}
+}
+
+  /* ---- scorecard page ---- */
+  #v-scorecard .wrap {max-width: 820px; margin: 0 auto; padding: 0 20px;}
+  #v-scorecard .eyebrow {text-transform: uppercase; letter-spacing: .12em; font-size: 13px; font-weight: 700; color: var(--mint);}
+  #v-scorecard .hero {background: radial-gradient(1000px 420px at 85% -10%, rgba(124,201,185,.25), transparent 60%), linear-gradient(180deg, var(--navy-deep), var(--navy)); color: #fff; padding: 60px 0 64px;}
+  #v-scorecard .hero h1 {font-size: clamp(32px, 4.6vw, 48px); line-height: 1.1; letter-spacing: -.03em; font-weight: 800; margin-top: 12px;}
+  #v-scorecard .hero h1 span {color: var(--mint);}
+  #v-scorecard .hero p {font-size: 18px; color: #C9D6E5; margin-top: 16px; max-width: 600px;}
+  #v-scorecard .checks {list-style: none; display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 20px; color: #DCE6F1; font-weight: 600; font-size: 15px;}
+  #v-scorecard .checks li::before {content: "✓"; color: var(--mint); margin-right: 8px; font-weight: 800;}
+  #v-scorecard .progress {display: flex; align-items: center; gap: 14px; margin: 32px 0 20px;}
+  #v-scorecard .bar {flex: 1; height: 8px; background: var(--line); border-radius: 999px; overflow: hidden;}
+  #v-scorecard .fill {height: 100%; width: 0; background: linear-gradient(90deg, var(--teal), var(--mint)); transition: width .3s;}
+  #v-scorecard .ptext {font-size: 14px; font-weight: 700; color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums;}
+  #v-scorecard #quiz {display: grid; gap: 16px;}
+  #v-scorecard .qcard {background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 24px;}
+  #v-scorecard .qnum {font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--teal);}
+  #v-scorecard .qtext {font-size: 19px; font-weight: 700; letter-spacing: -.01em; margin: 6px 0 14px;}
+  #v-scorecard .options {display: grid; gap: 10px;}
+  #v-scorecard .option {display: flex; align-items: center; gap: 12px; width: 100%; text-align: left; font: inherit; font-size: 16px; color: var(--ink); background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; cursor: pointer; transition: border-color .15s, background .15s;}
+  #v-scorecard .option:hover {border-color: var(--teal);}
+  #v-scorecard .option:focus-visible {outline: 3px solid var(--mint); outline-offset: 2px;}
+  #v-scorecard .dot {width: 20px; height: 20px; border-radius: 50%; border: 2px solid #B8C4D2; flex: none; display: grid; place-items: center;}
+  #v-scorecard .option.selected {border: 2px solid var(--teal); background: #EEF7F6; padding: 11px 13px; font-weight: 600;}
+  #v-scorecard .option.selected .dot {border-color: var(--teal);}
+  #v-scorecard .option.selected .dot::after {content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--teal);}
+  #v-scorecard .submit-row {display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 28px 0 56px;}
+  #v-scorecard .btn {display: inline-block; font: inherit; padding: 14px 28px; border-radius: 10px; font-weight: 700; font-size: 16px; border: 0; cursor: pointer; text-decoration: none;}
+  #v-scorecard .btn-main {background: var(--navy); color: #fff;}
+  #v-scorecard .btn-main:disabled {background: #B8C4D2; cursor: not-allowed;}
+  #v-scorecard .hint {font-size: 14px; color: var(--muted);}
+  #v-scorecard #results {padding: 0 0 56px;}
+  #v-scorecard .flag.wait {background: var(--soft); color: var(--muted);}
+  #v-scorecard .result {background: var(--navy); color: #fff; border-radius: 18px; padding: 32px; text-align: center;}
+  #v-scorecard .dial {position: relative; width: 220px; max-width: 100%; margin: 0 auto;}
+  #v-scorecard .dial svg {width: 100%; display: block;}
+  #v-scorecard .dial .num {position: absolute; left: 0; right: 0; bottom: 6px; font-size: 48px; font-weight: 800; line-height: 1;}
+  #v-scorecard .dial-max {font-size: 14px; color: #9FB3CA; margin-top: 4px;}
+  #v-scorecard .zone {display: inline-block; margin-top: 16px; font-size: 13px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; border-radius: 999px; padding: 6px 14px; background: rgba(255,255,255,.1);}
+  #v-scorecard .result h2 {font-size: clamp(24px, 3.4vw, 32px); line-height: 1.2; letter-spacing: -.02em; margin: 14px auto 10px; max-width: 600px;}
+  #v-scorecard .result-body {color: #C9D6E5; max-width: 600px; margin: 0 auto; display: grid; gap: 10px; text-align: left;}
+  #v-scorecard .result .next {margin-top: 24px; display: grid; gap: 10px; justify-items: center;}
+  #v-scorecard .result .next .btn {background: var(--mint); color: var(--navy-deep);}
+  #v-scorecard .result .next p {font-size: 14px; color: #9FB3CA; max-width: 460px;}
+  #v-scorecard .retake {background: none; border: 0; color: var(--mint); font: inherit; font-weight: 600; text-decoration: underline; cursor: pointer; margin-top: 14px;}
+  #v-scorecard .breakdown {background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 24px; margin-top: 16px;}
+  #v-scorecard .breakdown h3 {font-size: 17px; margin-bottom: 10px;}
+  #v-scorecard .brow {display: flex; justify-content: space-between; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line);}
+  #v-scorecard .brow:last-child {border-bottom: 0;}
+  #v-scorecard .flag {font-size: 12px; font-weight: 800; letter-spacing: .08em; border-radius: 999px; padding: 4px 10px; white-space: nowrap;}
+  #v-scorecard .flag.solid {background: #E6F5F1; color: var(--solid);}
+  #v-scorecard .flag.watch {background: #FBF1DE; color: var(--watch);}
+  #v-scorecard .flag.strained {background: #F8E6E1; color: var(--strained);}
+  #v-scorecard .foot {text-align: center; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 0 0 36px;}
+@media (max-width: 560px) {
+  #v-scorecard .hero {padding: 44px 0 48px;}
+  #v-scorecard .qcard {padding: 20px 16px;}
+  #v-scorecard .result {padding: 28px 18px;}
+}
+
+
+  /* Header and footer on phones and tablets */
+  @media (max-width: 900px) {
+    .site-top .wrap { position: relative; }
+    .site-brand { margin-right: auto; }
+    .site-top .bar-cta { display: inline-block; padding: 9px 14px; font-size: 14px; }
+    .menu-btn { display: grid; }
+    .site-top nav { display: none; position: absolute; top: 72px; left: 0; right: 0; background: var(--navy-deep); flex-direction: column; align-items: stretch; gap: 0; padding: 4px 20px 20px; border-top: 1px solid rgba(255,255,255,.1); box-shadow: 0 16px 30px rgba(0,0,0,.25); }
+    .site-top.open nav { display: flex; }
+    .site-top nav a.link { padding: 14px 0; font-size: 17px; border-bottom: 1px solid rgba(255,255,255,.1); }
+    .site-top nav a.link.here { box-shadow: none; color: var(--mint); }
+    .site-top nav .site-btn { margin-top: 16px; text-align: center; padding: 14px; font-size: 16px; }
+    .site-foot .cols { grid-template-columns: 1fr 1fr; }
+    .site-foot .about { grid-column: 1 / -1; }
+  }
+  @media (max-width: 420px) {
+    .site-top .bar-cta { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Logo colors, used by the Prosper ERP logo on the home and about pages -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <clipPath id="pp"><path d="M25 19 H58 C73 19 82 30 82 43.5 C82 57 73 68 58 68 H40 V88 H25 Z"/></clipPath>
+    <linearGradient id="pt" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#2E7F92"/><stop offset="1" stop-color="#7CC9B9"/></linearGradient>
+    <linearGradient id="pa" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#2A7488"/><stop offset=".6" stop-color="#4FA3A6"/><stop offset="1" stop-color="#86D3BF"/></linearGradient>
+  </defs>
+</svg>
+
+<!-- ======================= HEADER ======================= -->
+<header class="site-top" data-part="header">
+  <div class="wrap">
+    <a class="site-brand" data-go="/" href="#">
+      <svg viewBox="0 0 38 38" aria-hidden="true"><rect width="38" height="38" rx="9" fill="#1A3761"/><rect x="8" y="21" width="5.5" height="10" rx="1" fill="#C9D6E5"/><rect x="16.25" y="15" width="5.5" height="16" rx="1" fill="#7CC9B9"/><rect x="24.5" y="8" width="5.5" height="23" rx="1" fill="#2E7F92"/></svg>
+      <span>Prosper VP<small>Veteran owned</small></span>
+    </a>
+    <a class="site-btn bar-cta" data-go="/client-discovery-form" href="#">Free evaluation</a>
+    <button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false"><span></span></button>
+    <nav aria-label="Main">
+      <a class="link" data-go="/" data-view="home" href="#">Home</a>
+      <a class="link" data-go="/company" data-view="about" href="#">About</a>
+      <a class="link" data-go="/scorecard" data-view="scorecard" href="#">Scorecard</a>
+      <a class="link" data-go="/blog" href="#">Blog</a>
+      <a class="link" href="https://www.prospererp.com/" target="_blank" rel="noopener">Prosper ERP</a>
+      <a class="site-btn" data-go="/client-discovery-form" data-view="contact" href="#">Book a free evaluation</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ======================= PAGES ======================= -->
+<main id="v-home" data-page="home"><section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="vet">★ Veteran-owned business</div>
+      <h1>Your business shouldn't need you for <span>every single decision.</span></h1>
+      <p>Prosper VP helps small and mid-sized companies find what's holding them back and fix it. Senior leadership experience, part time, at a fraction of the cost of a full-time hire.</p>
+      <div class="ctas">
+        <a class="btn btn-main" href="https://www.prospervp.com/client-discovery-form" target="_blank" rel="noopener">Book a free 30-minute evaluation</a>
+        <a class="btn btn-ghost" href="https://www.prospervp.com/scorecard" target="_blank" rel="noopener">Take the 9-question scorecard</a>
+      </div>
+      <div class="small">Business coach &amp; fractional VP for small and mid-sized companies.</div>
+    </div>
+    <div class="familiar">
+      <h3>Sound familiar?</h3>
+      <ul>
+        <li>You work more hours every year, but profit isn't growing.</li>
+        <li>Everything runs through you, so nothing moves when you're out.</li>
+        <li>You're not sure which jobs or customers actually make money.</li>
+        <li>Marketing costs money and you can't tell what's working.</li>
+        <li>Good people leave, or never follow through.</li>
+      </ul>
+      <div class="end">If two or more of these hit home, we should talk.</div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap">
+    <span>1-on-1 business coaching</span>
+    <span>Fractional VP, part time</span>
+    <span>14-day growth diagnostic</span>
+    <span>U.S. Navy veteran owned</span>
+  </div>
+</div>
+
+<section id="problems">
+  <div class="wrap">
+    <div class="eyebrow">Problems we fix</div>
+    <h2>We start with what's broken, not with a sales pitch.</h2>
+    <p class="lead">These are the problems owners bring to us most often, and what we do about them.</p>
+    <div class="probs">
+      <div class="prob">
+        <h3>Sales have stalled</h3>
+        <div class="pain">You've hit a ceiling. Same revenue as last year, maybe the year before.</div>
+        <div class="k">What we do</div>
+        <div class="fix">Find where leads come from, where they're lost, and which customers are worth chasing. Build a simple sales process your team can follow.</div>
+        <div class="win">A pipeline you can see and a plan to grow it, month by month.</div>
+      </div>
+      <div class="prob">
+        <h3>You're the bottleneck</h3>
+        <div class="pain">Every question, quote and problem lands on your desk.</div>
+        <div class="k">What we do</div>
+        <div class="fix">Write down how the work gets done, decide who owns what, and set up weekly check-ins so decisions happen without you.</div>
+        <div class="win">You get time back and the business runs when you're not there.</div>
+      </div>
+      <div class="prob">
+        <h3>Busy, but not profitable</h3>
+        <div class="pain">Plenty of work, not much left over at the end of the month.</div>
+        <div class="k">What we do</div>
+        <div class="fix">Look at real numbers by job, product and customer. Find the work that loses money and fix pricing, waste and overhead.</div>
+        <div class="win">Decisions based on numbers, not guesswork.</div>
+      </div>
+      <div class="prob">
+        <h3>Marketing isn't paying off</h3>
+        <div class="pain">You spend on ads, a website and social media, and can't tell what brings in work.</div>
+        <div class="k">What we do</div>
+        <div class="fix">Review what you're doing now, cut what doesn't work, and build a plan aimed at the customers you actually want.</div>
+        <div class="win">Every marketing dollar has a job and you can measure it.</div>
+      </div>
+      <div class="prob">
+        <h3>Running on paper and memory</h3>
+        <div class="pain">Spreadsheets, sticky notes and texts. Things fall through the cracks.</div>
+        <div class="k">What we do</div>
+        <div class="fix">Set up simple systems and the right tools for estimating, scheduling, time tracking and billing, so nothing depends on one person remembering.</div>
+        <div class="win">Fewer mistakes, faster billing, and a clear picture of every job.</div>
+      </div>
+      <div class="prob">
+        <h3>Your team isn't pulling together</h3>
+        <div class="pain">People do their own thing, and accountability is hard to keep up.</div>
+        <div class="k">What we do</div>
+        <div class="fix">Set clear goals and numbers for each role, and coach you and your leaders on running short, useful meetings.</div>
+        <div class="win">Everyone knows what winning looks like this week.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="eyebrow">How it works</div>
+    <h2>Three steps, and you decide at each one.</h2>
+    <div class="flow">
+      <div>
+        <span class="n">STEP 1</span>
+        <h4>Evaluation call</h4>
+        <span class="when">Free · 30 minutes</span>
+        <p>Tell us what's frustrating you. We'll tell you plainly whether we can help. No pressure and no obligation.</p>
+        <a href="https://www.prospervp.com/client-discovery-form" target="_blank" rel="noopener">Book the call →</a>
+      </div>
+      <div>
+        <span class="n">STEP 2</span>
+        <h4>Strategic Growth Diagnostic</h4>
+        <span class="when">14 days</span>
+        <p>A focused two-week sprint. We dig into your sales, operations and numbers, and hand you a written list of what to fix first.</p>
+        <a href="https://www.prospervp.com/scorecard" target="_blank" rel="noopener">See the details →</a>
+      </div>
+      <div>
+        <span class="n">STEP 3</span>
+        <h4>Coaching or Fractional VP</h4>
+        <span class="when">Weekly or every 2 weeks</span>
+        <p>We work alongside you to put the fixes in place, with 1-on-1 coaching or hands-on executive help. Scale up or down as you need.</p>
+        <a href="https://www.prospervp.com/client-discovery-form" target="_blank" rel="noopener">Ask about pricing →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap two">
+    <div>
+      <div class="eyebrow">Not sure yet?</div>
+      <h2>Find out in 9 questions.</h2>
+      <p class="lead">Our free scorecard shows where your business stands and whether outside help makes sense right now.</p>
+      <ul class="checks">
+        <li>No email needed</li>
+        <li>Takes about 2 minutes</li>
+        <li>Results are for you only</li>
+      </ul>
+      <a class="btn btn-navy" href="https://www.prospervp.com/scorecard" target="_blank" rel="noopener">Start the scorecard</a>
+    </div>
+    <div>
+      <blockquote>
+        <p>"Prosper VP helped me transform my car service from reactive to strategic. Today, we operate with clarity, efficiency, and measurable results."</p>
+        <cite>Ray, car service owner</cite>
+      </blockquote>
+      <div class="pete">
+        <h3>Who you'll work with</h3>
+        <p>Pete Ficco has spent more than twenty years leading sales teams and building companies. He served in the U.S. Navy aboard the USS Yellowstone and the USS Enterprise, and brings the same discipline and straight talk to every client.</p>
+        <div class="facts">
+          <div><b>20+ yrs</b><span>leading sales and operations</span></div>
+          <div><b>20%+</b><span>yearly growth in companies he led</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="erp" id="erp">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">From the Prosper team</div>
+      <div class="brand">
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          
+          <rect width="100" height="100" rx="12" fill="#0B2B4C"/>
+          <g clip-path="url(#pp)"><rect width="100" height="100" fill="#F7FCFF"/><polygon points="0,0 80,0 74,18 77,21 56,42 47,31 0,71.6" fill="url(#pt)"/></g>
+          <path d="M25 50 L47 31 L56 42 L77 21 L74 18 L92.5 12 L88 32 L84.5 28.5 L56 57 L47 46 L25 65 Z" fill="url(#pa)" stroke="#0B2B4C" stroke-width="2.2"/>
+        </svg>
+        Prosper ERP
+      </div>
+      <h2>Stop running your business from a spreadsheet.</h2>
+      <p class="lead">We kept seeing the same problem: bids in one place, time cards in another, invoices late. So we built Prosper ERP, one simple program for the whole job, from first call to final payment. It works on phones in the field and PCs in the office.</p>
+      <div class="ctas">
+        <a class="btn btn-main" href="https://www.prospererp.com/" target="_blank" rel="noopener">Visit ProsperERP.com</a>
+        <a class="btn btn-ghost" href="https://prosper-erp.netlify.app/login?signup=1" target="_blank" rel="noopener">Start a 14-day free trial</a>
+      </div>
+    </div>
+    <ul>
+      <li>Bids and estimates</li>
+      <li>Time clock on any phone</li>
+      <li>Scheduling</li>
+      <li>Invoices and online payments</li>
+      <li>Job cost and reports</li>
+      <li>QuickBooks Online</li>
+      <li>Files in your OneDrive</li>
+      <li>Works with no internet</li>
+    </ul>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap">
+    <div class="eyebrow">Questions &amp; answers</div>
+    <h2>Good to know.</h2>
+    <div class="list">
+      <details>
+        <summary>What is a Fractional VP?</summary>
+        <p>An experienced executive who works with your business part time, giving you high-level leadership and direction without the cost of a full-time hire.</p>
+      </details>
+      <details>
+        <summary>How can I tell if my business needs one?</summary>
+        <p>If you're juggling too many roles, growth has stalled, or you're unsure how to line up day-to-day work with long-term goals, a Fractional VP can help. The free scorecard is a quick way to check.</p>
+      </details>
+      <details>
+        <summary>How is this different from hiring a full-time VP?</summary>
+        <p>A full-time VP is costly and often more than a small business needs. We give you the same experience part time, and you can scale up or down as your needs change.</p>
+      </details>
+      <details>
+        <summary>Why does a business owner need a coach?</summary>
+        <p>Professional athletes have coaches and top executives have mentors. The most successful owners don't try to have every answer themselves. They have a trusted advisor in their corner.</p>
+      </details>
+      <details>
+        <summary>What does veteran-owned mean for me?</summary>
+        <p>Pete served in the U.S. Navy aboard the USS Yellowstone and the USS Enterprise. We bring the same discipline, integrity and clear communication to every client.</p>
+      </details>
+      <details>
+        <summary>How do I get started?</summary>
+        <p>Book the free 30-minute evaluation. We'll talk about your goals and challenges, then recommend a plan for your business.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>Tell us what's holding your business back.</h2>
+    <p>A free 30-minute call. You'll leave with at least one thing you can fix this week, whether or not we work together.</p>
+    <a class="btn btn-main" href="https://www.prospervp.com/client-discovery-form" target="_blank" rel="noopener">Book a free evaluation</a>
+  </div>
+</section></main>
+<main id="v-about" data-page="about"><section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">About Prosper VP</div>
+      <h1>Growth doesn't happen by accident. <span>It happens by design.</span></h1>
+      <p>Pete Ficco started Prosper VP after more than twenty years leading sales teams and building companies from the ground up. He works alongside owners as a business coach or a part-time VP, so they get senior experience without a full-time hire.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>20+ years</b><span>leading sales teams and building companies</span></div>
+      <div class="stat"><b>20%+ a year</b><span>growth, year after year, in the companies he led</span></div>
+      <div class="stat"><b>U.S. Navy</b><span>veteran, USS Yellowstone and USS Enterprise</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="ceiling">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Why Prosper VP exists</div>
+      <h2>Good companies hit a ceiling.</h2>
+      <p class="lead">Over the years Pete kept seeing the same pattern. A company has a great product and real customers, then growth stops. What's missing is usually leadership: someone with time and experience to set the plan, build the systems and hold everyone to it.</p>
+    </div>
+    <div class="have">
+      <div class="yes"><i>✓</i>A product people want</div>
+      <div class="yes"><i>✓</i>A market and paying customers</div>
+      <div class="yes"><i>✓</i>A team that works hard</div>
+      <div class="no"><i>?</i>Leadership to reach the next level</div>
+    </div>
+  </div>
+</section>
+
+<section class="record">
+  <div class="wrap">
+    <div class="eyebrow">Track record</div>
+    <h2>What Pete has done for companies like yours.</h2>
+    <p class="lead">No guesswork or gimmicks. Clear strategy, systems people can repeat, and steady follow-through.</p>
+    <div class="grid">
+      <div class="card"><h3>Grew sales, year after year</h3><p>Led high-performing sales teams and helped businesses grow 20% or more each year.</p></div>
+      <div class="card"><h3>Reached new customers</h3><p>Built marketing plans that expanded where and to whom companies could sell.</p></div>
+      <div class="card"><h3>Cut waste</h3><p>Brought in smarter processes, better tools and simpler operations, focused on what actually moves the needle.</p></div>
+      <div class="card"><h3>Led big changes</h3><p>Guided startups and well-known brands through major changes, and took on problems others didn't want to touch.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="navy">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Veteran owned</div>
+      <h2>Navy discipline, applied to your business.</h2>
+      <p class="lead">Pete served in the U.S. Navy. The habits from that service shape how Prosper VP works with every client.</p>
+      <div class="ships"><span>USS YELLOWSTONE</span><span>USS ENTERPRISE</span></div>
+    </div>
+    <div class="values">
+      <div><h4>Discipline</h4><p>A plan, a schedule, and follow-through every week.</p></div>
+      <div><h4>Integrity</h4><p>Straight answers, even when they're not what you hoped to hear.</p></div>
+      <div><h4>Clear communication</h4><p>Plain language and no consultant jargon.</p></div>
+      <div><h4>Mission first</h4><p>Everything we do points at your goals.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Working together</div>
+    <h2>Two ways to work with Pete.</h2>
+    <p class="lead">Pick the level of help that fits. You can change as your business changes.</p>
+    <div class="two">
+      <div class="panel">
+        <h3>Business Coach</h3>
+        <div class="who">For owners who want a guide and accountability</div>
+        <ul>
+          <li>1-on-1 meetings, weekly or every 2 weeks</li>
+          <li>A proven system, one step at a time</li>
+          <li>You do the work; Pete keeps you on track</li>
+        </ul>
+      </div>
+      <div class="panel best">
+        <h3>Fractional VP</h3>
+        <div class="who">For companies that need a leader in the seat</div>
+        <ul>
+          <li>Part-time executive working inside your business</li>
+          <li>Leads sales, operations or growth projects directly</li>
+          <li>Scale up or down without a full-time salary</li>
+        </ul>
+      </div>
+    </div>
+    <p class="start">Not sure which fits? Both start with a <a href="https://www.prospervp.com/client-discovery-form" target="_blank" rel="noopener">free 30-minute evaluation</a>.</p>
+  </div>
+</section>
+
+<div class="erp-note">
+  <div class="wrap">
+    <svg viewBox="0 0 100 100" aria-hidden="true">
+      
+      <rect width="100" height="100" rx="12" fill="#1A3761"/>
+      <g clip-path="url(#pp)"><rect width="100" height="100" fill="#F7FCFF"/><polygon points="0,0 80,0 74,18 77,21 56,42 47,31 0,71.6" fill="url(#pt)"/></g>
+      <path d="M25 50 L47 31 L56 42 L77 21 L74 18 L92.5 12 L88 32 L84.5 28.5 L56 57 L47 46 L25 65 Z" fill="url(#pa)" stroke="#0B2B4C" stroke-width="2.2"/>
+    </svg>
+    <p><b>Pete also built Prosper ERP</b>, software that runs jobs, crews, time and invoices in one place, after seeing how many businesses run on spreadsheets and paper.</p>
+    <a class="go" href="https://www.prospererp.com/" target="_blank" rel="noopener">Visit ProsperERP.com →</a>
+  </div>
+</div>
+
+<section class="final">
+  <div class="wrap">
+    <h2>Let's build something that lasts.</h2>
+    <p>Tell Pete what's holding your business back. The first call is free, with no pressure and no obligation.</p>
+    <div class="ctas">
+      <a class="btn btn-main" href="https://www.prospervp.com/client-discovery-form" target="_blank" rel="noopener">Book a free evaluation</a>
+      <a class="btn btn-ghost" href="https://www.prospervp.com/scorecard" target="_blank" rel="noopener">Take the scorecard</a>
+    </div>
+  </div>
+</section></main>
+<main id="v-contact" data-page="contact"><section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Free 30-minute evaluation</div>
+      <h1>Tell us what's holding your business back. <span>We'll tell you plainly if we can help.</span></h1>
+      <p>Fill in the short form below. There's no cost and no obligation, and you don't need to have it all figured out before we talk.</p>
+      <ul class="checks">
+        <li>No pressure</li>
+        <li>No obligation</li>
+        <li>Veteran owned</li>
+      </ul>
+    </div>
+    <div class="next">
+      <h3>What happens next</h3>
+      <ol>
+        <li><b>1</b><div><strong>You send the form</strong><span>A few lines about your business and what's frustrating you.</span></div></li>
+        <li><b>2</b><div><strong>We reach out</strong><span>Pete contacts you to set up a time that works.</span></div></li>
+        <li><b>3</b><div><strong>Free 30-minute call</strong><span>We talk through your goals and challenges, then recommend a plan, or tell you if we're not the right fit.</span></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<div class="formhead">
+  <div class="wrap">
+    <h2>Discovery form</h2>
+    <p>Only your company name is required. Tell us as much or as little as you like.</p>
+  </div>
+</div></main>
+<main id="v-scorecard" data-page="scorecard"><section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Prosper VP diagnostic</div>
+    <h1>Is your business ready for <span>a Fractional VP?</span></h1>
+    <p>9 questions, about 2 minutes. A straight read on whether part-time, experienced executive help would make a real difference to your business right now.</p>
+    <ul class="checks">
+      <li>No email needed</li>
+      <li>Instant results</li>
+      <li>Results are for you only</li>
+    </ul>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="progress"><div class="bar"><div class="fill" id="fill"></div></div><span class="ptext" id="ptext">0 of 9 answered</span></div>
+  <div id="quiz"></div>
+  <div class="submit-row" id="submitRow">
+    <button class="btn btn-main" id="submitBtn" type="button" disabled>See my score</button>
+    <span class="hint" id="hint">Answer all 9 questions to see your score.</span>
+  </div>
+
+  <!-- Your score: always on the page so the Wix box height stays the same before and after. -->
+  <div id="results">
+    <div class="result">
+      <div class="dial">
+        <svg viewBox="0 0 220 120" aria-hidden="true">
+          <path d="M 20 110 A 90 90 0 0 1 200 110" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="14" stroke-linecap="round"/>
+          <path id="arc" d="M 20 110 A 90 90 0 0 1 200 110" fill="none" stroke="#7CC9B9" stroke-width="14" stroke-linecap="round" stroke-dasharray="283" stroke-dashoffset="283"/>
+        </svg>
+        <div class="num" id="scoreNum">?</div>
+      </div>
+      <div class="dial-max">out of 27 (lower is healthier)</div>
+      <div class="zone" id="zone">Your score</div>
+      <h2 id="headline">Your score will show here.</h2>
+      <div class="result-body" id="body"><p>Answer all 9 questions above and press <b>See my score</b>. You'll see your zone, what it means, and which areas are under the most pressure.</p></div>
+      <div class="next">
+        <p><b style="color:#fff">Want a plan for your score?</b> Fill in the form below this box and include your score. We'll get back to you with a next step that fits.</p>
+      </div>
+      <button class="retake" id="retakeBtn" type="button" hidden>Start over</button>
+    </div>
+    <div class="breakdown">
+      <h3>Where the pressure is building</h3>
+      <div id="rows"></div>
+    </div>
+  </div>
+</div>
+
+<div class="foot">Prosper VP · Lancaster County, PA · Veteran owned</div></main>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="site-foot" data-part="footer">
+  <div class="wrap">
+    <div class="cols">
+      <div class="about">
+        <a class="site-brand" data-go="/" href="#">
+          <svg viewBox="0 0 38 38" aria-hidden="true"><rect width="38" height="38" rx="9" fill="#1A3761"/><rect x="8" y="21" width="5.5" height="10" rx="1" fill="#C9D6E5"/><rect x="16.25" y="15" width="5.5" height="16" rx="1" fill="#7CC9B9"/><rect x="24.5" y="8" width="5.5" height="23" rx="1" fill="#2E7F92"/></svg>
+          <span>Prosper VP<small>Veteran owned</small></span>
+        </a>
+        <p>Business coaching and fractional VP help for small and mid-sized companies. Lancaster County, PA.</p>
+      </div>
+      <div>
+        <h4>Pages</h4>
+        <ul>
+          <li><a data-go="/" href="#">Home</a></li>
+          <li><a data-go="/company" href="#">About</a></li>
+          <li><a data-go="/scorecard" href="#">Scorecard</a></li>
+          <li><a data-go="/blog" href="#">Blog</a></li>
+          <li><a data-go="/client-discovery-form" href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/company/prosper-vp" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61579252072227" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://www.instagram.com/prospervp_group" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Software</h4>
+        <ul>
+          <li><a class="erp-link" href="https://www.prospererp.com/" target="_blank" rel="noopener">Prosper ERP →</a></li>
+          <li>Jobs, crews, time and invoices in one place</li>
+        </ul>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© <span id="year">2026</span> Prosper VP. All rights reserved.</span>
+      <nav aria-label="Legal">
+        <a data-go="/privacy-policy" href="#">Privacy policy</a>
+        <a data-go="/accessibility-statement" href="#">Accessibility statement</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ============================================================
+     EASY EDITS
+     ============================================================ */
+  // Your website address, with no "/" at the end. Every menu and button
+  // link is built from this. While you're testing on the new Wix site
+  // before the domain switch, you can put that site's address here.
+  var SITE = "https://www.prospervp.com";
+
+  // Which page to show when the code is pasted straight into Wix
+  // (Embed HTML → Code). One of: "home", "about", "contact", "scorecard", "footer".
+  // If the code is loaded from a web address instead, put the page after a #
+  // at the end of the address, like  ...prospervp-site.html#about
+  var PAGE = "home";
+
+  /* ---------- You shouldn't need to change anything below. ---------- */
+  // Which parts each page shows. Contact and Scorecard end without the footer,
+  // because the Wix form comes next; a separate "footer" box goes under the form.
+  var LAYOUT = {
+    home:      { header: true,  footer: true },
+    about:     { header: true,  footer: true },
+    contact:   { header: true,  footer: false },
+    scorecard: { header: true,  footer: false },
+    footer:    { header: false, footer: true }
+  };
+  var want = (location.hash || "").slice(1) || PAGE;
+  if (!LAYOUT[want]) want = "home";
+  document.querySelectorAll("main[data-page]").forEach(function (m) {
+    if (m.getAttribute("data-page") !== want) m.remove();
+  });
+  if (!LAYOUT[want].header) document.querySelector('[data-part="header"]').remove();
+  if (!LAYOUT[want].footer) document.querySelector('[data-part="footer"]').remove();
+  // Footer-only box: fill any spare space in the box with the footer color.
+  if (want === "footer") document.body.style.background = "var(--navy-deep)";
+  var titles = { home: "Prosper VP", about: "About Prosper VP", contact: "Contact Prosper VP", scorecard: "Prosper VP Scorecard", footer: "Prosper VP" };
+  document.title = titles[want];
+
+  // Menu and footer links open the right Wix page in the same window.
+  document.querySelectorAll("[data-go]").forEach(function (a) {
+    a.href = SITE + a.getAttribute("data-go");
+    a.target = "_top";
+    if (a.getAttribute("data-view") === want) a.classList.add("here");
+  });
+  // Buttons inside the pages that point at your own site also open in the same window.
+  document.querySelectorAll('a[href^="https://www.prospervp.com"]').forEach(function (a) {
+    a.href = SITE + a.getAttribute("href").replace("https://www.prospervp.com", "");
+    a.target = "_top";
+    a.removeAttribute("rel");
+  });
+  var yr = document.getElementById("year");
+  if (yr) yr.textContent = new Date().getFullYear();
+
+  // Phone/tablet menu button opens and closes the list of links.
+  (function () {
+    var top = document.querySelector(".site-top");
+    if (!top) return;
+    var btn = top.querySelector(".menu-btn");
+    btn.addEventListener("click", function () {
+      var open = top.classList.toggle("open");
+      btn.setAttribute("aria-expanded", open);
+    });
+  })();
+
+  // Links like "#problems" scroll within the page.
+  // Wix shows the page inside a box, where plain "#" links don't move anything.
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    var id = a.getAttribute("href").slice(1);
+    if (!id) return;
+    a.addEventListener("click", function (e) {
+      var target = document.getElementById(id);
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+
+  // The scorecard questions and scoring (only runs on the scorecard page).
+  if (document.getElementById("quiz")) (function () {
+
+  /* ============================================================
+     EASY EDITS: the questions. Each answer scores 1, 2 or 3.
+     Total 9-14 = Stable footing, 15-20 = Pressure building, 21-27 = Overextended.
+     ============================================================ */
+  var QUESTIONS = [
+    { cat: "Your time", text: "How much of your week goes to tasks someone else could be doing?",
+      options: ["Almost none. I work on the business, not in it.", "Some. I still handle a lot I shouldn't.", "Most of it. I'm buried in day-to-day operations."] },
+    { cat: "Decisions", text: "When a major decision needs to be made, what usually happens?",
+      options: ["I have a clear process and people I trust for input.", "I usually figure it out alone, on gut instinct.", "It stalls. I don't have anyone to think it through with."] },
+    { cat: "Growth", text: "How does this year's revenue compare to what you expected a year ago?",
+      options: ["On track or ahead of plan.", "Flat. It's been level for a while now.", "Behind, or growth has stopped."] },
+    { cat: "Numbers", text: "If someone asked for last month's key numbers right now, could you produce them in under 5 minutes?",
+      options: ["Yes, I track them every week.", "I'd have to dig for them.", "Honestly, I'm not sure where I'd even look."] },
+    { cat: "Marketing", text: "How predictable is your flow of new customers?",
+      options: ["Steady. A repeatable process brings in leads.", "Feast or famine, depending on the month.", "Mostly word of mouth, with no real system."] },
+    { cat: "Delegation", text: "If you took two weeks off with no phone, what would happen?",
+      options: ["The business would run fine without me.", "It would mostly hold together, with some fires.", "Things would fall apart quickly."] },
+    { cat: "Money", text: "How confident are you in your margins and cash position at any given moment?",
+      options: ["Very. I know my numbers cold.", "Fairly. I check in now and then.", "Not very. It's more of a feeling than a fact."] },
+    { cat: "Leadership", text: "Do you have someone at the executive level to push back on your thinking?",
+      options: ["Yes, a partner, board or advisor I trust.", "Sort of, but it's informal and on and off.", "No. Every big call is mine alone."] },
+    { cat: "Hiring", text: "Have you thought about hiring a full-time VP or executive, and what stopped you?",
+      options: ["Not needed. We're well staffed at that level.", "I've thought about it, but the cost and commitment gave me pause.", "We've needed one for a while, but I can't justify the salary."] }
+  ];
+
+  var ZONES = [
+    { max: 14, zone: "Stable footing", color: "#7CC9B9",
+      headline: "You're in decent shape. Don't get comfortable.",
+      body: ["Your operations and decision-making are fairly solid right now. That's real, and it's rarer than you'd think.",
+             "Where businesses like yours usually get caught off guard is growth. The systems that work at your size now often break at the next size. A short diagnostic now, before you feel the strain, is cheap insurance."] },
+    { max: 20, zone: "Pressure building", color: "#E3B65A",
+      headline: "You're carrying more than a business owner should.",
+      body: ["Some real cracks are showing in your time, your numbers, or your ability to step away. None of it is an emergency yet, but it's the kind of drag that quietly limits how big and how profitable this business can get.",
+             "This is the stage where a Fractional VP pays for itself fastest: senior-level judgment on the areas under strain, without the cost of a full-time executive."] },
+    { max: 27, zone: "Overextended", color: "#E8826A",
+      headline: "You're running the business on your own energy alone.",
+      body: ["Based on your answers, most major decisions wait on you, your numbers aren't easy to see, and stepping away would put things at risk. That's not a personal failing. It's what happens when a growing business outgrows its leadership.",
+             "This is the clearest case for outside executive help. A 14-Day Strategic Growth Diagnostic would give you a clear, ordered list of where to act first."] }
+  ];
+
+  /* ---------- You shouldn't need to change anything below. ---------- */
+  var answers = QUESTIONS.map(function () { return null; });
+  var quiz = document.getElementById("quiz");
+
+  QUESTIONS.forEach(function (q, qi) {
+    var card = document.createElement("div");
+    card.className = "qcard";
+    card.innerHTML = '<span class="qnum">Question ' + (qi + 1) + ' of ' + QUESTIONS.length + ' · ' + q.cat + '</span><p class="qtext"></p><div class="options" role="radiogroup"></div>';
+    card.querySelector(".qtext").textContent = q.text;
+    var wrap = card.querySelector(".options");
+    wrap.setAttribute("aria-label", q.text);
+    q.options.forEach(function (label, oi) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "option";
+      b.setAttribute("role", "radio");
+      b.setAttribute("aria-checked", "false");
+      b.innerHTML = '<span class="dot"></span><span></span>';
+      b.lastChild.textContent = label;
+      b.addEventListener("click", function () { pick(qi, oi); });
+      wrap.appendChild(b);
+    });
+    quiz.appendChild(card);
+  });
+
+  function pick(qi, oi) {
+    answers[qi] = oi;
+    quiz.children[qi].querySelectorAll(".option").forEach(function (b, i) {
+      b.classList.toggle("selected", i === oi);
+      b.setAttribute("aria-checked", i === oi ? "true" : "false");
+    });
+    var done = answers.filter(function (a) { return a !== null; }).length;
+    document.getElementById("fill").style.width = (done / QUESTIONS.length * 100) + "%";
+    document.getElementById("ptext").textContent = done + " of " + QUESTIONS.length + " answered";
+    document.getElementById("submitBtn").disabled = done !== QUESTIONS.length;
+    document.getElementById("hint").textContent = done === QUESTIONS.length ? "Ready when you are." : "Answer all 9 questions to see your score.";
+  }
+
+  function showRows(flags) {
+    var rows = document.getElementById("rows");
+    rows.innerHTML = "";
+    QUESTIONS.forEach(function (q, qi) {
+      var flag = flags ? flags[qi] : "wait";
+      var row = document.createElement("div");
+      row.className = "brow";
+      row.innerHTML = '<span></span><span class="flag ' + flag + '">' + (flags ? flag.toUpperCase() : "–") + '</span>';
+      row.firstChild.textContent = q.cat;
+      rows.appendChild(row);
+    });
+  }
+  showRows(null);
+
+  document.getElementById("submitBtn").addEventListener("click", function () {
+    var score = 0, flags = [];
+    QUESTIONS.forEach(function (q, qi) {
+      var val = answers[qi] + 1;
+      score += val;
+      flags.push(["solid", "watch", "strained"][val - 1]);
+    });
+    showRows(flags);
+    var z = ZONES.filter(function (z) { return score <= z.max; })[0];
+    document.getElementById("scoreNum").textContent = score;
+    var zone = document.getElementById("zone");
+    zone.textContent = "Zone: " + z.zone;
+    zone.style.color = z.color;
+    document.getElementById("headline").textContent = z.headline;
+    var body = document.getElementById("body");
+    body.innerHTML = "";
+    z.body.forEach(function (t) { var p = document.createElement("p"); p.textContent = t; body.appendChild(p); });
+
+    var min = QUESTIONS.length, max = QUESTIONS.length * 3;
+    var arc = document.getElementById("arc");
+    arc.style.transition = "none";
+    arc.style.stroke = z.color;
+    arc.style.strokeDashoffset = 283;
+    setTimeout(function () {
+      arc.style.transition = "stroke-dashoffset 1s ease";
+      arc.style.strokeDashoffset = 283 - ((score - min) / (max - min)) * 283;
+    }, 80);
+
+    document.getElementById("retakeBtn").hidden = false;
+    document.getElementById("results").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  // Change an answer and press "See my score" again, or start over from the top.
+  document.getElementById("retakeBtn").addEventListener("click", function () {
+    QUESTIONS.forEach(function (q, qi) {
+      answers[qi] = null;
+      quiz.children[qi].querySelectorAll(".option").forEach(function (b) {
+        b.classList.remove("selected");
+        b.setAttribute("aria-checked", "false");
+      });
+    });
+    pick(0, null);
+    document.getElementById("scoreNum").textContent = "?";
+    document.getElementById("zone").textContent = "Your score";
+    document.getElementById("zone").style.color = "";
+    document.getElementById("headline").textContent = "Your score will show here.";
+    document.getElementById("body").innerHTML = "<p>Answer all 9 questions above and press <b>See my score</b>. You'll see your zone, what it means, and which areas are under the most pressure.</p>";
+    document.getElementById("arc").style.strokeDashoffset = 283;
+    document.getElementById("retakeBtn").hidden = true;
+    showRows(null);
+    quiz.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  })();
+</script>
+</body>
+</html>
