@@ -857,8 +857,8 @@
 
   // Which page to show when the code is pasted straight into Wix
   // (Embed HTML → Code). One of: "home", "about", "contact", "scorecard", "footer".
-  // If the code is loaded from a web address instead, put the page after a #
-  // at the end of the address, like  ...prospervp-site.html#about
+  // From the web address, each page has its own folder that opens this file
+  // on the right part:  .../prospervp-website/about/  (also works: ?page=about or #about)
   var PAGE = "home";
 
   /* ---------- You shouldn't need to change anything below. ---------- */
@@ -871,7 +871,8 @@
     scorecard: { header: true,  footer: false },
     footer:    { header: false, footer: true }
   };
-  var want = (location.hash || "").slice(1) || PAGE;
+  var asked = location.search.match(/[?&]page=(\w+)/);
+  var want = (location.hash || "").slice(1) || (asked && asked[1]) || PAGE;
   if (!LAYOUT[want]) want = "home";
   document.querySelectorAll("main[data-page]").forEach(function (m) {
     if (m.getAttribute("data-page") !== want) m.remove();
